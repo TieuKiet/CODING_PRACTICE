@@ -22,8 +22,3 @@ class Solution:
                 return False        
         return True
 
-s="racecar"
-t="carrace"
-sol = Solution()
-ans = sol.isAnagram(s,t)
-print(ans)
