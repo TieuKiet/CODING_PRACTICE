@@ -2,11 +2,9 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         res = ""
         for c in s:
-            print('c: ',c, '|', ' res:' , res)
             if c.isascii() and c.isalnum() and c != " ":
                 res += c.lower()
 
-        print(res, res[::-1])
         return res == res[::-1]
 
 
