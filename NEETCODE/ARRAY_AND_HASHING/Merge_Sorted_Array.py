@@ -1,11 +1,18 @@
 class Solution:
-    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
-        """
-        Do not return anything, modify nums1 in-place instead.
-        """
-        idx = 0
-        for i in range(-1,-n-1,-1):
-            nums1[i] = nums2[idx]
-            idx += 1
+    def removeDuplicates(self, nums: list[int]) -> int:
+        check = dict.fromkeys(nums, 0)
+        k = 0
+        for i in range(len(nums)):
+            if check[nums[i]] == 0:
+                check[nums[i]] += 1
+                k += 1
+            else:
+                nums[i] = 101
         
-        nums1.sort()
+        idx = 0
+        for i in range(len(nums)):
+            if nums[i] != 101:
+                nums[idx], nums[i]= nums[i], nums[idx]
+                idx += 1
+        
+        return k
