@@ -1,74 +1,32 @@
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
-        is_valid = True
-
-        for r in range(9):
-
-            # kiểm tra hàng ngang
-            check = {}
-            for c in range(9):
-                if board[r][c] == '.': 
-                    continue
-                if board[r][c] not in check:
-                    check[board[r][c]] = 1
-                else:
-                    check[board[r][c]] += 1
-            for value in check.values():
-                if value > 1:
-                    return False
-
-            # kiểm tra hàng dọc
-            check = {}
-            for c in range(9):
-                if board[c][r] == '.': 
-                    continue
-                if  board[c][r] not in check:
-                    check[ board[c][r]] = 1
-                else:
-                    check[ board[c][r]] += 1
-            for value in check.values():
-                if value > 1:
-                    return False
-
-        # kiểm tra vùng 3x3
-        for r in range(0, 7, 3):
-            check = {}
-            for c in range(0,7,3):         
-                         
-                for k in range(3):
-                    print(r, c+k)
-                    '''if board[r][k] == '.':
-                        continue
-
-                    if board[r][k] not in check:
-                        check[board[r][k]] = 1
-
-                    else:
-                        board[board[r][k]] += 1'''
-            print(check)
-            for value in check.values():
-                if value > 1:
-                    return False
-            
-        
-
+        # 1. Kiểm tra hàng ngang và hàng dọc
+        for i in range(9):
+            row_check = set()
+            col_check = set()
+            for j in range(9):
+                # Kiểm tra hàng i
+                if board[i][j] != '.':
+                    if board[i][j] in row_check:
+                        return False
+                    row_check.add(board[i][j])
                 
+                # Kiểm tra cột i
+                if board[j][i] != '.':
+                    if board[j][i] in col_check:
+                        return False
+                    col_check.add(board[j][i])
 
-            
+        # 2. Kiểm tra vùng 3x3
+        for r in range(0, 9, 3):
+            for c in range(0, 9, 3):
+                box_check = set()
+                for i in range(3):
+                    for j in range(3):
+                        val = board[r + i][c + j]
+                        if val != '.':
+                            if val in box_check:
+                                return False
+                            box_check.add(val)
 
         return True
-
-
-
-s = Solution()
-print(s.isValidSudoku(board =
-[["1","2",".",".","3",".",".",".","."],
- ["4",".",".","5",".",".",".",".","."],
- [".","9","8",".",".",".",".",".","3"],
- ["5",".",".",".","6",".",".",".","4"],
- [".",".",".","8",".","3",".",".","5"],
- ["7",".",".",".","2",".",".",".","6"],
- [".",".",".",".",".",".","2",".","."],
- [".",".",".","4","1","9",".",".","8"],
- [".",".",".",".","8",".",".","7","9"]]))
-            
