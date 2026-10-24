@@ -1,0 +1,8 @@
+# Các file test cá nhân
+t.py
+temp.py
+scratch.py
+
+# Bỏ qua tất cả file bắt đầu bằng test_ hoặc temp_
+test_*.py
+temp_*.py
