@@ -1,5 +1,5 @@
 class Solution:
-    def findClosestElements(self, arr: list[int], k: int, x: int) -> List[int]:
+    def findClosestElements(self, arr: list[int], k: int, x: int) -> list[int]:
         res = arr[:k]
         n= len(arr)
         if n == k:
