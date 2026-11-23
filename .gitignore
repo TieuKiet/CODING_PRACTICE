@@ -7,3 +7,5 @@ temp_*.py
 
 # File biên dịch Java
 *.class
+*.pptx
+.DS_Store
