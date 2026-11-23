@@ -10,6 +10,7 @@ class Solution:
             if tuple(count) not in check:
                 check[tuple(count)] = []
             check[tuple(count)].append(s)
+            print(check)
 
         for value in check.values():
             res.append(value)
