@@ -1,11 +1,9 @@
+# Bỏ qua toàn bộ thư mục PRACTICE để tránh quét trùng repo con
+PRACTICE/
+
 # Các file test cá nhân
 t.py
 temp.py
 scratch.py
 test_*.py
 temp_*.py
-
-# File biên dịch Java
-*.class
-*.pptx
-.DS_Store
