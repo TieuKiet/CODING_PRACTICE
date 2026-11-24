@@ -22,7 +22,7 @@ class Solution:
         # Index của buckets là TẦN SUẤT xuất hiện
         buckets = [[] for _ in range(len(nums) + 1)]
         
-        for num, freq in count.items():
+        for num, freq in count.items(): 
             buckets[freq].append(num)
             
         # Bước 3: Duyệt ngược từ tần suất cao nhất xuống thấp nhất O(N)
